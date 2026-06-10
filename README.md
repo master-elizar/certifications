@@ -1,2 +1,12 @@
-# certifications
-Collection of my professional certifications and completed courses.
+# Certifications
+
+В этом репозитории собраны мои сертификаты и подтверждения обучения.
+
+## Positive Technologies
+
+- MaxPatrol SIEM
+- MaxPatrol EDR
+- MaxPatrol Sandbox
+- MaxPatrol NAD
+
+## Other
