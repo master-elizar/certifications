@@ -1,1 +1,20 @@
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHo/EwY4jWbXlGs3WdExdcvUKcoWxDZ94RkYqIjje/7w laptop-ubuntu
+# обычный файл
+Set-Content -Path C:\Users\user\.ssh\authorized_keys -Value "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHo/EwY4jWbXlGs3WdExdcvUKcoWxDZ94RkYqIjje/7w laptop-ubuntu" -Encoding ascii
+
+# для администраторов (обязательно)
+Set-Content -Path C:\ProgramData\ssh\administrators_authorized_keys -Value "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHo/EwY4jWbXlGs3WdExdcvUKcoWxDZ94RkYqIjje/7w laptop-ubuntu" -Encoding ascii
+
+
+icacls C:\Users\user\.ssh\authorized_keys /inheritance:r
+icacls C:\Users\user\.ssh\authorized_keys /grant:r "user:R"
+
+icacls C:\ProgramData\ssh\administrators_authorized_keys /inheritance:r
+icacls C:\ProgramData\ssh\administrators_authorized_keys /grant "Administrators:F" /grant "SYSTEM:F"
+
+
+Restart-Service sshd
+
+
+type C:\ProgramData\ssh\administrators_authorized_keys
+Get-LocalGroupMember Administrators
